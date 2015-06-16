@@ -44,7 +44,7 @@ public abstract class BaseCardArrayAdapter extends ArrayAdapter<Card> {
     /**
      * Default layout used for each row
      */
-    protected int mRowLayoutId = R.layout.list_card_layout;
+    protected int mRowLayoutId = R.layout.list_card_thumbnail_layout;
 
     /**
      * Used to set the viewTypeCount
