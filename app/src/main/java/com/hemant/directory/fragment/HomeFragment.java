@@ -106,7 +106,6 @@ public class HomeFragment extends Fragment {
         restaurants_card.addCardHeader(header);
         cards.add(restaurants_card);
 
-
         // Dentists
         //Create a Card
         Card dentists_card = new Card(getActivity());
