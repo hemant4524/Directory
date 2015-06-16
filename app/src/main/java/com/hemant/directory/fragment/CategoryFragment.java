@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.hemant.directory.R;
-import com.hemant.directory.activity.CategoryDetailActivity;
+import com.hemant.directory.activity.DetailActivity;
 import com.hemant.directory.adapter.CategorylistAdapter;
 import com.hemant.directory.views.CustomCardHeader;
 import com.hemant.directory.views.CustomThumb;
@@ -93,7 +93,7 @@ public class CategoryFragment extends Fragment {
             public void onClick(Card card, View view) {
 
                 Toast.makeText(getActivity(),"Detail Activity",Toast.LENGTH_LONG).show();
-                Intent i = new Intent(getActivity(), CategoryDetailActivity.class);
+                Intent i = new Intent(getActivity(), DetailActivity.class);
                 // Embed the serialized item
 //                 Start the activity
                 startActivity(i);
