@@ -11,12 +11,12 @@ import com.hemant.directory.R;
 /**
  * Created by software on 6/15/15.
  */
-public class PopulerItemDetailFragment extends Fragment {
+public class DetailFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate view
-        View view = inflater.inflate(R.layout.fragment_populeritem_detail,
+        View view = inflater.inflate(R.layout.fragment_detail,
                 container, false);
         // Return view
         return view;

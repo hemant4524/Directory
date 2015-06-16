@@ -3,32 +3,34 @@ package com.hemant.directory.fragment;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.hemant.directory.R;
-import com.hemant.directory.activity.CategoryListActivity;
-import com.hemant.directory.adapter.CustomGrid;
+import com.hemant.directory.activity.CategoryDetailActivity;
+import com.hemant.directory.adapter.CategorylistAdapter;
 import com.hemant.directory.views.CustomCardHeader;
 import com.hemant.directory.views.CustomThumb;
 
 import java.util.ArrayList;
 
 import it.gmariotti.cardslib.library.internal.Card;
-import it.gmariotti.cardslib.library.view.CardGridView;
+import it.gmariotti.cardslib.library.view.CardListView;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
  * create an instance of this fragment.
  */
-public class HomeFragment extends Fragment {
+public class CategoryFragment extends Fragment {
 
-    private CardGridView mGridView;
+    private static final String TAG =CategoryFragment.class.getName() ;
+    private CardListView mlvCategory;
 
-    public HomeFragment() {
+    public CategoryFragment() {
         // Required empty public constructor
     }
 
@@ -41,9 +43,11 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_categorylist,container, false);
 
-         mGridView = (CardGridView) getActivity().findViewById(R.id.myGrid);
-        return inflater.inflate(R.layout.fragment_home,container, false);
+        mlvCategory = (CardListView) getActivity().findViewById(R.id.category_list_lvMatch);
+
+        return view;
     }
 
     @Override
@@ -52,9 +56,11 @@ public class HomeFragment extends Fragment {
 
         // Set cardgrid adapter
         ArrayList<Card> cards = createCards();
-        CustomGrid mCardArrayAdapter = new CustomGrid(getActivity(),cards);
-        if (mGridView!=null){
-            mGridView.setAdapter(mCardArrayAdapter);
+        CategorylistAdapter mCardArrayAdapter = new CategorylistAdapter(getActivity(),cards);
+        if (mlvCategory !=null){
+            mlvCategory.setAdapter(mCardArrayAdapter);
+        }else{
+            Log.d(TAG,"mlvCategory:"+mlvCategory);
         }
 
     }
@@ -85,11 +91,14 @@ public class HomeFragment extends Fragment {
         popular_card.setOnClickListener(new Card.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
-                Toast.makeText(getActivity(),"nearby_popular",Toast.LENGTH_LONG).show();
-                Intent i = new Intent(getActivity(), CategoryListActivity.class);
+
+                Toast.makeText(getActivity(),"Detail Activity",Toast.LENGTH_LONG).show();
+                Intent i = new Intent(getActivity(), CategoryDetailActivity.class);
                 // Embed the serialized item
-                // Start the activity
+//                 Start the activity
                 startActivity(i);
+
+
             }
         });
 
