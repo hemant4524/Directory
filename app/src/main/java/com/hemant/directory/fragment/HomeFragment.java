@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.hemant.directory.R;
 import com.hemant.directory.activity.CategoryListActivity;
@@ -85,11 +84,14 @@ public class HomeFragment extends Fragment {
         popular_card.setOnClickListener(new Card.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
-                Toast.makeText(getActivity(),"nearby_popular",Toast.LENGTH_LONG).show();
+
                 Intent i = new Intent(getActivity(), CategoryListActivity.class);
                 // Embed the serialized item
                 // Start the activity
                 startActivity(i);
+
+
+
             }
         });
 

@@ -25,4 +25,7 @@
     <string name="transition_name_circle">transition:CIRCLE</string>
     <string name="transition_name_phone">transition:PHONE"</string>
 
+
+    <string name="drawer_open">open</string>
+    <string name="drawer_close">close</string>
 </resources>
