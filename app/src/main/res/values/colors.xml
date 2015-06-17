@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#9C27B0</color>
+    <color name="colorPrimaryDark">#7B1FA2</color>
+    <color name="colorPrimaryLight">#E1BEE7</color>
+    <color name="colorAccent">#536DFE</color>
+
+    <color name="textColorPrimary">#212121</color>
+    <color name="textColorSecondary">#727272</color>
+
+    <color name="text">#FFFFFF</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#B6B6B6</color>
+
+    <color name="colorControlNormal">@color/textColorSecondary</color>
+    <color name="colorControlActivated">@color/colorAccent</color>
+    <color name="colorControlHighlight">@color/divider</color>
+
+    <!--
+    <color name="colorButtonNormal">#19C1B2</color>
+    <color name="colorSwitchThumbNormal">#19C1B2</color>
+    <color name="navegationBarColor">@color/colorPrimaryDark</color>
+    -->
+
+    <color name="windowBackground">#C0C3C6</color>
+    <color name="backgroundLight">#E0E0E0</color>
+    <color name="backgroundDark">#424242</color>
+
+    <color name="listViewRowBackground">#F2F2F2</color>
+    <color name="myNavigationColor">#000000</color>
+    <color name="myDrawerBackground">#F2F2F2</color>
+
+</resources>
