@@ -12,12 +12,12 @@ import android.widget.Toast;
 import com.hemant.directory.R;
 import com.hemant.directory.activity.DetailActivity;
 import com.hemant.directory.adapter.CategorylistAdapter;
-import com.hemant.directory.views.CustomCardHeader;
-import com.hemant.directory.views.CustomThumb;
 
 import java.util.ArrayList;
 
 import it.gmariotti.cardslib.library.internal.Card;
+import it.gmariotti.cardslib.library.internal.CardHeader;
+import it.gmariotti.cardslib.library.internal.CardThumbnail;
 import it.gmariotti.cardslib.library.view.CardListView;
 
 /**
@@ -72,128 +72,40 @@ public class CategoryFragment extends Fragment {
     {
         ArrayList<Card> cards = new ArrayList<Card>();
 
-        // Popular
-        //Create a CardHeader
-        CustomCardHeader header = new CustomCardHeader(getActivity());
 
-        //Create a Card
-        Card popular_card = new Card(getActivity());
-        CustomThumb thumb = new CustomThumb(getActivity());
-        thumb.setDrawableResource(R.drawable.ic_nearby_popular);
-        popular_card.addCardThumbnail(thumb);
 
-        header.setTitle("Popular");
-        //Add Header to card
-        popular_card.addCardHeader(header);
-        cards.add(popular_card);
-        // Set click listener
-        popular_card.setOnClickListener(new Card.OnCardClickListener() {
-            @Override
-            public void onClick(Card card, View view) {
+        for (int i = 0; i<10;i++)
+        {
+            // Popular
+            //Create a CardHeader
+            CardHeader header = new CardHeader(getActivity());
 
-                Toast.makeText(getActivity(),"Detail Activity",Toast.LENGTH_LONG).show();
-                Intent i = new Intent(getActivity(), DetailActivity.class);
-                // Embed the serialized item
+            //Create a Card
+            Card popular_card = new Card(getActivity());
+            CardThumbnail thumb = new CardThumbnail(getActivity());
+            thumb.setDrawableResource(R.drawable.ic_nearby_popular);
+            popular_card.addCardThumbnail(thumb);
+
+            header.setTitle("Popular");
+            //Add Header to card
+            popular_card.addCardHeader(header);
+            cards.add(popular_card);
+            // Set click listener
+            popular_card.setOnClickListener(new Card.OnCardClickListener() {
+                @Override
+                public void onClick(Card card, View view) {
+
+                    Toast.makeText(getActivity(),"Detail Activity",Toast.LENGTH_LONG).show();
+                    Intent i = new Intent(getActivity(), DetailActivity.class);
 //                 Start the activity
-                startActivity(i);
+                    startActivity(i);
 
 
-            }
-        });
-
-        // Restaurants
-
-        //Create a Card
-        Card restaurants_card = new Card(getActivity());
-        header = new CustomCardHeader(getActivity());
-        header.setTitle("Restaurants");
-        thumb = new CustomThumb(getActivity());
-        thumb.setDrawableResource(R.drawable.ic_nearby_restaurants);
-        restaurants_card.addCardThumbnail(thumb);
-        //Add Header to card
-        restaurants_card.addCardHeader(header);
-        cards.add(restaurants_card);
-
-        // Dentists
-        //Create a Card
-        Card dentists_card = new Card(getActivity());
-        header = new CustomCardHeader(getActivity());
-        header.setTitle("Dentists");
-        thumb = new CustomThumb(getActivity());
-        thumb.setDrawableResource(R.drawable.ic_nearby_dentists);
-        dentists_card.addCardThumbnail(thumb);
-        //Add Header to card
-        dentists_card.addCardHeader(header);
-        cards.add(dentists_card);
-
-        // Dj Music
-        //Create a Card
-        Card taxis_card = new Card(getActivity());
-        header = new CustomCardHeader(getActivity());
-        header.setTitle("Dj Music");
-        thumb = new CustomThumb(getActivity());
-        thumb.setDrawableResource(R.drawable.ic_nearby_taxis);
-        taxis_card.addCardThumbnail(thumb);
-        //Add Header to card
-        taxis_card.addCardHeader(header);
-        cards.add(taxis_card);
+                }
+            });
+        }
 
 
-
-        // Dj Music
-        //Create a Card
-        Card florists_card = new Card(getActivity());
-        header = new CustomCardHeader(getActivity());
-        header.setTitle("Florist");
-        thumb = new CustomThumb(getActivity());
-        thumb.setDrawableResource(R.drawable.ic_nearby_florists);
-        florists_card.addCardThumbnail(thumb);
-        //Add Header to card
-        florists_card.addCardHeader(header);
-        cards.add(florists_card);
-
-        // Doctor
-        //Create a Card
-        Card doctors_card = new Card(getActivity());
-        header = new CustomCardHeader(getActivity());
-        header.setTitle("Doctor");
-        thumb = new CustomThumb(getActivity());
-        thumb.setDrawableResource(R.drawable.ic_nearby_doctors);
-        doctors_card.addCardThumbnail(thumb);
-        //Add Header to card
-        doctors_card.addCardHeader(header);
-        cards.add(doctors_card);
-
-
-        // Medical Store
-        //Create a Card
-        Card medical_card = new Card(getActivity());
-        header = new CustomCardHeader(getActivity());
-        header.setTitle("Medical Store");
-        thumb = new CustomThumb(getActivity());
-        thumb.setDrawableResource(R.drawable.ic_nearby_hospitals);
-        medical_card.addCardThumbnail(thumb);
-
-
-
-        //Add Header to card
-        medical_card.addCardHeader(header);
-
-
-        cards.add(medical_card);
-
-
-        // Graphics
-        //Create a Card
-        Card graphics_card = new Card(getActivity());
-        header = new CustomCardHeader(getActivity());
-        header.setTitle("Graphics");
-        thumb = new CustomThumb(getActivity());
-        thumb.setDrawableResource(R.drawable.ic_nearby_groceries);
-        graphics_card.addCardThumbnail(thumb);
-        //Add Header to card
-        graphics_card.addCardHeader(header);
-        cards.add(graphics_card);
 
         return  cards;
 
