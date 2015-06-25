@@ -13,6 +13,7 @@ import android.widget.ListView;
 
 import com.hemant.directory.R;
 import com.hemant.directory.fragment.HomeFragment;
+import com.parse.ParseObject;
 
 import java.util.ArrayList;
 
@@ -33,13 +34,16 @@ public class HomeScreenActivity  extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
        setContentView(R.layout.homescreen_layout);
+
+        ParseObject testObject = new ParseObject("TestObject");
+        testObject.put("foo", "bar");
+        testObject.saveInBackground();
+
         mMenulist = new ArrayList<String>();
-        mMenulist.add("Popular");
-        mMenulist.add("Restaurants");
-        mMenulist.add("Dentists");
-        mMenulist.add("Dj Music");
-        mMenulist.add("Medical Store");
-        mMenulist.add("Graphics");
+        mMenulist.add("Profile");
+        mMenulist.add("Add User");
+        mMenulist.add("About");
+        mMenulist.add("Help");
 
 
         initView();

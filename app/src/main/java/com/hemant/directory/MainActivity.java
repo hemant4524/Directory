@@ -7,6 +7,7 @@ import android.webkit.WebView;
 
 import com.hemant.directory.api.Endpoints;
 import com.hemant.directory.constant.WSConstant;
+import com.hemant.directory.db.Client;
 import com.hemant.directory.util.MyErrorHandler;
 
 import it.gmariotti.cardslib.library.internal.Card;
@@ -34,6 +35,9 @@ public class MainActivity extends ActionBarActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        dbInsertOperation();
+
 
         mWebView = (WebView) findViewById(R.id.webview);
         mWebView.clearCache(true);
@@ -113,6 +117,13 @@ public class MainActivity extends ActionBarActivity {
     }
 
 
+    public void dbInsertOperation()
+    {
+        Client client = new Client();
+        client.first_name = "Hemant";
+        client.insert();
+        client.save();
+    }
 }
 
 

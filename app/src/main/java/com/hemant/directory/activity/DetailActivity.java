@@ -10,13 +10,18 @@ import com.hemant.directory.R;
 /**
  * Created by software on 6/16/15.
  */
-public class DetailActivity  extends AppCompatActivity{
+public class DetailActivity extends AppCompatActivity {
     private Toolbar mToolbar;
+    private String TAG = DetailActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detail_layout);
+
+       // String call_from = getIntent().getExtras().getString(AppConstant.CALL_FROM);
+
+      //  Log.i(TAG,call_from);
 
         initView();
         if (mToolbar != null) {
@@ -34,8 +39,11 @@ public class DetailActivity  extends AppCompatActivity{
         }
     }
 
-
+    /**
+     * Initialize toolbar
+     */
     private void initView() {
+
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
     }
 

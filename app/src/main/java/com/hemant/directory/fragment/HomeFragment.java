@@ -3,6 +3,7 @@ package com.hemant.directory.fragment;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import com.hemant.directory.R;
 import com.hemant.directory.activity.CategoryListActivity;
 import com.hemant.directory.adapter.CustomGrid;
+import com.hemant.directory.constant.AppConstant;
 import com.hemant.directory.views.CustomCardHeader;
 import com.hemant.directory.views.CustomThumb;
 
@@ -26,6 +28,7 @@ import it.gmariotti.cardslib.library.view.CardGridView;
 public class HomeFragment extends Fragment {
 
     private CardGridView mGridView;
+    private String TAG = HomeFragment.class.getName();
 
     public HomeFragment() {
         // Required empty public constructor
@@ -85,12 +88,12 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(Card card, View view) {
 
-                Intent i = new Intent(getActivity(), CategoryListActivity.class);
+                Log.i(TAG,"click event");
+                Intent intent = new Intent(getActivity(), CategoryListActivity.class);
                 // Embed the serialized item
                 // Start the activity
-                startActivity(i);
-
-
+                intent.putExtra(AppConstant.CALL_FROM,"Popular");
+                startActivity(intent);
 
             }
         });
