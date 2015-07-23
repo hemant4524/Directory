@@ -202,4 +202,5 @@ public class LoginActivityFragment extends Fragment {
         return stringBuffer.toString();
     }
 
+
 }

@@ -11,7 +11,6 @@ import android.view.WindowManager;
 import com.hemant.directory.R;
 import com.htech.db.DatabaseService;
 import com.htech.model.Waiter;
-import com.htech.parser.XmlParser;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,16 +19,17 @@ import java.util.Collections;
 /**
  * Splash screen logic
  * http://www.androidhive.info/2013/07/how-to-implement-android-splash-screen-2/
- *
+ * <p/>
  * This is splash screen
- *  application start
- *  Get waiter list
+ * application start
+ * Get waiter list
  */
 public class SplashScreen extends Activity {
     private ArrayList<Waiter> mWaiterList = new ArrayList<Waiter>();
     private DatabaseService mDatabaseService;
-    private static int  SPLASH_TIME_OUT = 1000;
+    private static int SPLASH_TIME_OUT = 1000;
     private String TAG = SplashScreen.class.getSimpleName();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +47,7 @@ public class SplashScreen extends Activity {
     /**
      * Load data from server
      */
-    private class LoadWaiterDetailsAsync extends AsyncTask<String,String,String>
-    {
+    private class LoadWaiterDetailsAsync extends AsyncTask<String, String, String> {
 
         @Override
         protected void onPreExecute() {
@@ -58,18 +57,21 @@ public class SplashScreen extends Activity {
 
         @Override
         protected String doInBackground(String... params) {
-            new XmlParser().parseChannelData();
+
+            // Xml parsing
+            //new XmlParser().parseChannelData();
 
             // Load waiter detail from webservice
-            loadWaitersDetails();
+            //loadWaitersDetails();
 
+            // Create database instance
             try {
                 mDatabaseService = DatabaseService.getInstance(SplashScreen.this);
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
-            if ( mWaiterList != null) {
+            if (mWaiterList != null) {
 //                Boolean success = mDatabaseService
 //                        .insertWaiterInfoInDb(mWaiterList);
 //                Log.v("Insert Successfully in Home Data", " :" + success);
@@ -104,6 +106,7 @@ public class SplashScreen extends Activity {
 
         }
     }
+
     // Get Waiter Details From Server
     private void loadWaitersDetails() {
 
@@ -139,17 +142,14 @@ public class SplashScreen extends Activity {
     /**
      * This method used to sort waiter data by name
      */
-    private void sortingWaiterData()
-    {
+    private void sortingWaiterData() {
         // Before  sort waiter data
-        for(Waiter waiter : mWaiterList)
-        {
-            Log.d(TAG, "Before sort: " + waiter.getName() + " "+waiter.getPhone() + " " +waiter.getAddress());
+        for (Waiter waiter : mWaiterList) {
+            Log.d(TAG, "Before sort: " + waiter.getName() + " " + waiter.getPhone() + " " + waiter.getAddress());
         }
         Collections.sort(mWaiterList);
         Log.d(TAG, "Sort Arraylist data");
-        for(Waiter waiter : mWaiterList)
-        {
+        for (Waiter waiter : mWaiterList) {
             Log.d(TAG, "After sort: " + waiter.getName());
         }
 
@@ -157,18 +157,17 @@ public class SplashScreen extends Activity {
 
         // Sort by phone.
         Collections.sort(mWaiterList, Waiter.COMPARE_BY_PHONE);
-        for(Waiter waiter : mWaiterList)
-        {
-            Log.d(TAG, "Sort by phone: " + waiter.getName()+" "+ " "+waiter.getPhone());
+        for (Waiter waiter : mWaiterList) {
+            Log.d(TAG, "Sort by phone: " + waiter.getName() + " " + " " + waiter.getPhone());
         }
 
         // Sort by address.
         Collections.sort(mWaiterList, Waiter.COMPARE_BY_ADDRESS);
-        for(Waiter waiter : mWaiterList)
-        {
-            Log.d(TAG, "Sort by address: " + waiter.getName()+" "+ " "+waiter.getAddress());
+        for (Waiter waiter : mWaiterList) {
+            Log.d(TAG, "Sort by address: " + waiter.getName() + " " + " " + waiter.getAddress());
         }
     }
+
 
 
 

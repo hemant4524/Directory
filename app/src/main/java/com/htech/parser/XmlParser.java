@@ -13,6 +13,7 @@ import java.net.URL;
 
 /**
  * Created by software on 7/23/15.
+ * http://theopentutorials.com/tutorials/android/xml/android-simple-xmlpullparser-tutorial/
  */
 public class XmlParser {
 
