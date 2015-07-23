@@ -1,4 +1,4 @@
-package com.hemant.directory.inter;
+package com.hemant.directory.callback;
 
 /**
  * Created by poliveira on 27/10/2014.
