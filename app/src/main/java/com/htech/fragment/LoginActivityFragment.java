@@ -176,6 +176,7 @@ public class LoginActivityFragment extends Fragment {
                         if(picUri!=null)
                         {
                             Picasso.with(getActivity()).load(picUri).memoryPolicy(MemoryPolicy.NO_CACHE).networkPolicy(NetworkPolicy.NO_CACHE) .into(mivProfilePic);
+                            mivFacebookProfile.setProfileId(currentProfile.getId());
                         }
 
                     }
