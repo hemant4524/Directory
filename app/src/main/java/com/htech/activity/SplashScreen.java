@@ -11,9 +11,11 @@ import android.view.WindowManager;
 import com.hemant.directory.R;
 import com.htech.db.DatabaseService;
 import com.htech.model.Waiter;
+import com.htech.parser.XmlParser;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Splash screen logic
@@ -27,6 +29,7 @@ public class SplashScreen extends Activity {
     private ArrayList<Waiter> mWaiterList = new ArrayList<Waiter>();
     private DatabaseService mDatabaseService;
     private static int  SPLASH_TIME_OUT = 1000;
+    private String TAG = SplashScreen.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +44,9 @@ public class SplashScreen extends Activity {
 
     }
 
+    /**
+     * Load data from server
+     */
     private class LoadWaiterDetailsAsync extends AsyncTask<String,String,String>
     {
 
@@ -52,8 +58,10 @@ public class SplashScreen extends Activity {
 
         @Override
         protected String doInBackground(String... params) {
+            new XmlParser().parseChannelData();
+
             // Load waiter detail from webservice
-            //loadWaitersDetails();
+            loadWaitersDetails();
 
             try {
                 mDatabaseService = DatabaseService.getInstance(SplashScreen.this);
@@ -62,9 +70,9 @@ public class SplashScreen extends Activity {
             }
 
             if ( mWaiterList != null) {
-                Boolean success = mDatabaseService
-                        .insertWaiterInfoInDb(mWaiterList);
-                Log.v("Insert Successfully in Home Data", " :" + success);
+//                Boolean success = mDatabaseService
+//                        .insertWaiterInfoInDb(mWaiterList);
+//                Log.v("Insert Successfully in Home Data", " :" + success);
 
             }
 
@@ -74,7 +82,7 @@ public class SplashScreen extends Activity {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-
+            sortingWaiterData();
 
             new Handler().postDelayed(new Runnable() {
             /*
@@ -102,7 +110,9 @@ public class SplashScreen extends Activity {
         Waiter waiter = new Waiter();
         waiter.setId(1);
         waiter.setName("peter");
+        waiter.setPhone("9044444");
         waiter.setCity("Denmark");
+        waiter.setAddress("C Address");
         mWaiterList.add(waiter);
         // 2nd waiter list
         waiter = new Waiter();
@@ -110,6 +120,56 @@ public class SplashScreen extends Activity {
         waiter.setName("john mark");
         waiter.setCity("new york");
 
+        waiter = new Waiter();
+        waiter.setId(2);
+        waiter.setName("jems");
+        waiter.setCity("new york");
+        waiter.setPhone("5044444");
+        waiter.setAddress("B Address");
+
+        waiter = new Waiter();
+        waiter.setId(2);
+        waiter.setName("joff");
+        waiter.setCity("London");
+        waiter.setPhone("7044444");
+        waiter.setAddress("A Address");
         mWaiterList.add(waiter);
     }
+
+    /**
+     * This method used to sort waiter data by name
+     */
+    private void sortingWaiterData()
+    {
+        // Before  sort waiter data
+        for(Waiter waiter : mWaiterList)
+        {
+            Log.d(TAG, "Before sort: " + waiter.getName() + " "+waiter.getPhone() + " " +waiter.getAddress());
+        }
+        Collections.sort(mWaiterList);
+        Log.d(TAG, "Sort Arraylist data");
+        for(Waiter waiter : mWaiterList)
+        {
+            Log.d(TAG, "After sort: " + waiter.getName());
+        }
+
+        // Sort by phone number
+
+        // Sort by phone.
+        Collections.sort(mWaiterList, Waiter.COMPARE_BY_PHONE);
+        for(Waiter waiter : mWaiterList)
+        {
+            Log.d(TAG, "Sort by phone: " + waiter.getName()+" "+ " "+waiter.getPhone());
+        }
+
+        // Sort by address.
+        Collections.sort(mWaiterList, Waiter.COMPARE_BY_ADDRESS);
+        for(Waiter waiter : mWaiterList)
+        {
+            Log.d(TAG, "Sort by address: " + waiter.getName()+" "+ " "+waiter.getAddress());
+        }
+    }
+
+
+
 }

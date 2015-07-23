@@ -1,9 +1,11 @@
 package com.htech.model;
 
+import java.util.Comparator;
+
 /**
  * This is waiter model class
  */
-public class Waiter {
+public class Waiter implements Comparable<Waiter> {
     private int id;
     private String name;
     private String address;
@@ -78,4 +80,25 @@ public class Waiter {
     }
 
 
+    @Override
+    public int compareTo(Waiter another) {
+        return name.compareTo(another.name);
+    }
+
+    /*
+     * Sort by address
+     */
+    public static Comparator<Waiter> COMPARE_BY_ADDRESS = new Comparator<Waiter>() {
+        public int compare(Waiter one, Waiter other) {
+            return one.address.compareTo(other.address);
+        }
+    };
+     /*
+      * Sort by phone number
+      */
+    public static Comparator<Waiter> COMPARE_BY_PHONE = new Comparator<Waiter>() {
+        public int compare(Waiter one, Waiter other) {
+            return one.phone.compareTo(other.phone);
+        }
+    };
 }
