@@ -34,4 +34,21 @@
     <!-- Facebook app id-->
     <string name="facebook_app_id">1606866369588088</string>
     <string name="title_activity_login">LoginActivity</string>
+
+
+    <!-- Restaurant app data-->
+
+    <string-array name="main_menu_list">
+        <item>Starters</item>
+        <item>Mains</item>
+        <item>Drinks</item>
+        <item>Desserts</item>
+    </string-array>
+
+    <string-array name="main_menu_list_details">
+        <item>Starters_List</item>
+        <item>Mains_List</item>
+        <item>Drinks_List</item>
+        <item>Desserts_List</item>
+    </string-array>
 </resources>

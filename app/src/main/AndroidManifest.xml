@@ -35,6 +35,7 @@
             android:value="@string/facebook_app_id" />
         <activity android:name="com.htech.activity.LoginActivity"></activity>
         <activity android:name="com.htech.activity.HomeActivity"></activity>
+        <activity android:name="com.htech.activity.DetailMenuActivity"></activity>
     </application>
 
 </manifest>

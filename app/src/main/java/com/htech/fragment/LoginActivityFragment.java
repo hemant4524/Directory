@@ -49,11 +49,7 @@ public class LoginActivityFragment extends Fragment {
             AccessToken accessToken = loginResult.getAccessToken();
             Profile profile = Profile.getCurrentProfile();
             mTextDetails.setText(constructWelcomeMessage(profile));
-
         }
-
-
-
 
         @Override
         public void onCancel() {
