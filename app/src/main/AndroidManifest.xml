@@ -17,7 +17,7 @@
         <activity android:name=".activity.DetailActivity" />
         <activity
             android:name="com.htech.activity.SplashScreen"
-            android:label="Login" >
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,16 +26,22 @@
         </activity>
         <activity
             android:name="com.facebook.FacebookActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-            android:label="@string/app_name" />
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
-        <activity android:name="com.htech.activity.LoginActivity"></activity>
-        <activity android:name="com.htech.activity.HomeActivity"></activity>
-        <activity android:name="com.htech.activity.DetailMenuActivity"></activity>
+
+        <activity android:name="com.htech.activity.LoginActivity" />
+        <activity android:name="com.htech.activity.HomeActivity" />
+        <activity android:name="com.htech.activity.DetailMenuActivity" />
+        <activity
+            android:name="com.htech.activity.LockScreenActivity"
+            android:label="@string/title_activity_lock_screen" >
+        </activity>
+        <activity android:name="com.htech.activity.CustomPinActivity"></activity>
     </application>
 
 </manifest>

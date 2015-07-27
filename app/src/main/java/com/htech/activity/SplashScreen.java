@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.hemant.directory.R;
 import com.htech.db.DatabaseService;
@@ -29,7 +30,7 @@ public class SplashScreen extends Activity {
     private DatabaseService mDatabaseService;
     private static int SPLASH_TIME_OUT = 1000;
     private String TAG = SplashScreen.class.getSimpleName();
-
+    private static final int REQUEST_CODE_ENABLE = 11;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,10 +98,15 @@ public class SplashScreen extends Activity {
                     // This method will be executed once the timer is over
                     // Start your app main activity
                     // Start home screen
-                    Intent intent = new Intent(SplashScreen.this, HomeActivity.class);
-                    startActivity(intent);
+                     Intent intent = new Intent(SplashScreen.this, LoginActivity.class);
+                      startActivity(intent);
+
+//                    Intent intent = new Intent(SplashScreen.this, LockScreenActivity.class);
+//                    intent.putExtra(AppLock.EXTRA_TYPE, AppLock.ENABLE_PINLOCK);
+//                    intent.putExtra(AppLock.EXTRA_TYPE, AppLock.CHANGE_PIN);
+//                    startActivityForResult(intent, REQUEST_CODE_ENABLE);
                     // close this activity
-                    finish();
+                   // finish();
                 }
             }, SPLASH_TIME_OUT);
 
@@ -168,7 +174,17 @@ public class SplashScreen extends Activity {
         }
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
+
+        switch (requestCode) {
+            case REQUEST_CODE_ENABLE:
+                Toast.makeText(this, "PinCode enabled", Toast.LENGTH_SHORT).show();
+                break;
+        }
+    }
 
 
 }

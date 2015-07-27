@@ -13,7 +13,10 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
 import com.facebook.FacebookSdk;
+import com.github.orangegangsters.lollipin.lib.managers.LockManager;
+import com.hemant.directory.R;
 import com.htech.Utils.LruBitmapCache;
+import com.htech.activity.CustomPinActivity;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -35,6 +38,10 @@ public class MyApplication extends Application {
         mInstance = this;
         FacebookSdk.sdkInitialize(getApplicationContext());
         //printHashKey();
+        LockManager<CustomPinActivity> lockManager = LockManager.getInstance();
+        lockManager.enableAppLock(this, CustomPinActivity.class);
+        lockManager.getAppLock().setLogoId(R.drawable.security_lock);
+
     }
 
     public static synchronized MyApplication getInstance() {
