@@ -231,16 +231,16 @@ public class LoginActivity extends AppCompatActivity implements Response.ErrorLi
 //
 //        queue.add(jsonObjReq);
 
-        MyApplication myApplication = MyApplication.getInstance();
-        RequestQueue queue = myApplication.getRequestQueue();
-        REQ_CODE = REQ_CODE_MULTIPLE_DATA;
-        GsonRequest<Contacts> myReq = new GsonRequest<Contacts>(WebConstant.CONTACT_API_JSONARRAY,
-                Contacts.class,
-                null,
-                this, // use this method createMyReqSuccessListener()
-                this // use this method createMyReqErrorListener()
-        );
-        queue.add(myReq);
+//        MyApplication myApplication = MyApplication.getInstance();
+//        RequestQueue queue = myApplication.getRequestQueue();
+//        REQ_CODE = REQ_CODE_MULTIPLE_DATA;
+//        GsonRequest<Contacts> myReq = new GsonRequest<Contacts>(WebConstant.CONTACT_API_JSONARRAY,
+//                Contacts.class,
+//                null,
+//                this, // use this method createMyReqSuccessListener()
+//                this // use this method createMyReqErrorListener()
+//        );
+//        queue.add(myReq);
     }
 
     class Contacts

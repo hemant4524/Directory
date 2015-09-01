@@ -33,7 +33,7 @@ public class HomeScreenActivity  extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       setContentView(R.layout.homescreen_layout);
+        setContentView(R.layout.homescreen_layout);
 
         ParseObject testObject = new ParseObject("TestObject");
         testObject.put("foo", "bar");

@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Retrofit.iml" filepath="$PROJECT_DIR$/Retrofit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Directory.iml" filepath="$PROJECT_DIR$/Directory.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/library-cards/library-cards.iml" filepath="$PROJECT_DIR$/library-cards/library-cards.iml" />
       <module fileurl="file://$PROJECT_DIR$/library-core/library-core.iml" filepath="$PROJECT_DIR$/library-core/library-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/lollipinlib/lollipinlib.iml" filepath="$PROJECT_DIR$/lollipinlib/lollipinlib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lollipinlibv1/lollipinlibv1.iml" filepath="$PROJECT_DIR$/lollipinlibv1/lollipinlibv1.iml" />
     </modules>
   </component>
 </project>

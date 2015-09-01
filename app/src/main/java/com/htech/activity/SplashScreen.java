@@ -10,6 +10,7 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.hemant.directory.R;
+import com.hemant.directory.activity.HomeScreenActivity;
 import com.htech.db.DatabaseService;
 import com.htech.model.Waiter;
 
@@ -98,7 +99,7 @@ public class SplashScreen extends Activity {
                     // This method will be executed once the timer is over
                     // Start your app main activity
                     // Start home screen
-                     Intent intent = new Intent(SplashScreen.this, LoginActivity.class);
+                     Intent intent = new Intent(SplashScreen.this, HomeScreenActivity.class);
                       startActivity(intent);
 
 //                    Intent intent = new Intent(SplashScreen.this, LockScreenActivity.class);

@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name="com.htech.MyApplication"
+        android:name=".DirectoryApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:theme="@style/AppTheme" >
@@ -37,11 +37,7 @@
         <activity android:name="com.htech.activity.LoginActivity" />
         <activity android:name="com.htech.activity.HomeActivity" />
         <activity android:name="com.htech.activity.DetailMenuActivity" />
-        <activity
-            android:name="com.htech.activity.LockScreenActivity"
-            android:label="@string/title_activity_lock_screen" >
-        </activity>
-        <activity android:name="com.htech.activity.CustomPinActivity"></activity>
+
     </application>
 
 </manifest>
